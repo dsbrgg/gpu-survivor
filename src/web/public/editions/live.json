@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "id": "live-news-v1",
+  "title": "LIVE NEWS / AI MARKET",
+  "seed": 734612,
+  "duration_seconds": 180,
+  "boss_at_seconds": 180,
+  "regime": "neutral",
+  "threat_multiplier": 1,
+  "xp_multiplier": 1,
+  "provenance": "Shared RSS and market-news decisions from Jev update the running game. Effects are fictional interpretations. Market sentiment is news-derived, not a live stock quote.",
+  "events": []
+}

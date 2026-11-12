@@ -1,0 +1,12 @@
+/target/
+/node_modules/
+/dist/
+/test-results/
+/playwright-report/
+/src/web/public/game.wasm
+.DS_Store
+.env
+.env.*
+!.env.example
+__pycache__/
+/.cache/

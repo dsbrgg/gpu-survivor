@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111a1b" />
+    <meta
+      name="description"
+      content="A pixel-art survival game for the AI bubble. Collect compute, outlive the competition, burst the Bubble."
+    />
+    <title>GPU Survivor — Scale fast. Stay alive.</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='4' fill='%23111a1b'/%3E%3Cpath d='M8 11h24v18H8z' fill='%23c4e997'/%3E%3Cpath d='M15 15h10v10H15z' fill='%23111a1b'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/timeline.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="masthead">
+        <a class="brand" href="/" aria-label="GPU Survivor home">
+          <span class="chip-logo" aria-hidden="true"><i></i></span>
+          <span>GPU<span class="brand-secondary">SURVIVOR</span></span>
+        </a>
+        <span class="header-caption"
+          >THE MARKET NEVER SLEEPS.<br />NEITHER DOES YOUR GPU.</span
+        >
+        <div class="header-actions">
+          <span class="build-label"
+            ><i class="status-dot"></i> PLAYABLE PROTOTYPE</span
+          >
+          <button id="sound-toggle" class="small-button" aria-pressed="false">
+            SOUND OFF
+          </button>
+          <button
+            id="fullscreen"
+            class="small-button"
+            aria-label="Toggle game fullscreen"
+          >
+            ⛶
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">01 / INFINITE DATA CENTER</span>
+            <h1>A bullet heaven for the AI bubble.</h1>
+          </div>
+          <span class="edition-label"
+            >SINGLE PLAYER <span>/</span> 3 MINUTE RUNS</span
+          >
+        </div>
+
+        <div class="game-layout">
+          <section class="game-frame" aria-label="GPU Survivor game">
+            <div class="frame-bar">
+              <span
+                ><i class="status-dot"></i>
+                <span id="connection-label">BOOTING WASM</span></span
+              ><span id="frame-label">OPENING BELL / EDITION 001</span
+              ><button id="pause-button" aria-label="Pause game" disabled>
+                Ⅱ
+              </button>
+            </div>
+            <div id="game-viewport" class="game-viewport">
+              <canvas
+                id="glcanvas"
+                tabindex="0"
+                aria-label="Game. WASD or arrows to move. Space to dash. E for special ability. Escape to pause."
+              ></canvas>
+
+              <aside id="news-toast" class="news-toast" role="status" hidden>
+                <button id="news-toast-close" aria-label="Dismiss news card">
+                  ×
+                </button>
+                <span id="news-toast-label"></span>
+                <strong id="news-toast-title"></strong>
+                <p id="news-toast-effect"></p>
+              </aside>
+
+              <div id="menu-overlay" class="overlay menu-overlay">
+                <div class="menu-copy">
+                  <div class="pill">SURVIVE THE NEXT FUNDING CYCLE</div>
+                  <h2>SCALE FAST.<br /><span>STAY ALIVE.</span></h2>
+                  <p>
+                    Eat GPUs. Disrupt everyone.<br />Try not to get regulated.
+                  </p>
+                  <div class="tiny-stat">
+                    <span>180 SECONDS</span><b>∞ SERVER HALLS</b>
+                  </div>
+                </div>
+                <div class="founder-selection">
+                  <span class="eyebrow">CHOOSE YOUR FOUNDER</span>
+                  <div class="founder-cards">
+                    <button
+                      class="founder-card selected"
+                      data-character="0"
+                      aria-pressed="true"
+                      title="Jensen Huang / NVIDIA: eye projectiles. E: CUDA burst. Level-up weapon: returning Leather Jackets."
+                    >
+                      <span class="founder-index">01</span
+                      ><img
+                        src="/assets/jensen.png"
+                        alt="Pixel-art Jensen Huang wearing glasses and a leather jacket"
+                      />
+                      <strong>JENSEN</strong><small>NVIDIA</small
+                      ><span class="founder-weapon">Eye + CUDA burst</span>
+                    </button>
+                    <button
+                      class="founder-card"
+                      data-character="1"
+                      aria-pressed="false"
+                      title="Sam Altman / OpenAI: dual knot projectiles. E: damage and healing. Level-up weapon: exploding Capital Injection cash bundles."
+                    >
+                      <span class="founder-index">02</span
+                      ><img
+                        src="/assets/sam.png"
+                        alt="Pixel-art Sam Altman in a green overshirt"
+                      />
+                      <strong>SAM</strong><small>OPENAI</small
+                      ><span class="founder-weapon">Dual knots + heal</span>
+                    </button>
+                    <button
+                      class="founder-card"
+                      data-character="2"
+                      aria-pressed="false"
+                      title="Dario Amodei / Anthropic: heavy Claude starbursts. E: damage and a 2.5-second combat shield. Level-up weapon: projectile-blocking Safety Rails."
+                    >
+                      <span class="founder-index">03</span
+                      ><img
+                        src="/assets/dario.png"
+                        alt="Pixel-art Dario Amodei with curly hair and a blue shirt"
+                      />
+                      <strong>DARIO</strong><small>ANTHROPIC</small
+                      ><span class="founder-weapon">Claude + shield</span>
+                    </button>
+                    <button
+                      class="founder-card"
+                      data-character="3"
+                      aria-pressed="false"
+                      title="Elon Musk / xAI: triple Grok projectiles. E: wide-area Scale Up burst. Level-up weapon: piercing Cybertruck charges."
+                    >
+                      <span class="founder-index">04</span
+                      ><img
+                        src="/assets/elon.png"
+                        alt="Pixel-art Elon Musk in a black X shirt"
+                      />
+                      <strong>ELON</strong><small>xAI</small
+                      ><span class="founder-weapon">Triple Grok + blast</span>
+                    </button>
+                  </div>
+                  <button id="start-button" class="primary-button" disabled>
+                    <span>LOADING THE COMPUTE...</span><b>↗</b>
+                  </button>
+                  <span class="start-hint"
+                    >AUTO-FIRE ON. SHAREHOLDER VALUE OFF.</span
+                  >
+                </div>
+              </div>
+
+              <div id="upgrade-overlay" class="overlay modal-overlay" hidden>
+                <div class="modal-heading">
+                  <span class="eyebrow"
+                    >FRESH COMPUTE. QUESTIONABLE DECISIONS.</span
+                  >
+                  <h2>CHOOSE YOUR UNFAIR ADVANTAGE.</h2>
+                  <p id="upgrade-level">LEVEL 02 · Pick one upgrade</p>
+                </div>
+                <div id="upgrade-cards" class="upgrade-cards"></div>
+                <span class="start-hint"
+                  >PRESS 1, 2, OR 3 · THE MARKET IS PAUSED</span
+                >
+              </div>
+
+              <div id="pause-overlay" class="overlay modal-overlay" hidden>
+                <span class="eyebrow">MANDATORY BOARD MEETING</span>
+                <h2>MARKETS ON HOLD.</h2>
+                <p>Your runway is safe. For now.</p>
+                <button id="resume-button" class="primary-button compact">
+                  BACK TO BUSINESS ↗
+                </button>
+                <button class="text-button return-menu">RETURN TO LOBBY</button>
+              </div>
+
+              <div id="result-overlay" class="overlay modal-overlay" hidden>
+                <span id="result-eyebrow" class="eyebrow"
+                  >THE QUARTERLY REPORT</span
+                >
+                <h2 id="result-title">YOUR RUNWAY RAN OUT.</h2>
+                <p id="result-description">
+                  A visionary company. A slightly less visionary balance sheet.
+                </p>
+                <div class="result-stats">
+                  <div>
+                    <strong id="result-time">00:00</strong><span>SURVIVED</span>
+                  </div>
+                  <div>
+                    <strong id="result-gpus">0</strong
+                    ><span>GPUs ACQUIRED</span>
+                  </div>
+                  <div>
+                    <strong id="result-kills">0</strong><span>DISRUPTED</span>
+                  </div>
+                </div>
+                <button id="retry-button" class="primary-button compact">
+                  RAISE ANOTHER ROUND ↗
+                </button>
+                <button class="text-button return-menu">
+                  CHANGE FOUNDER / MARKET
+                </button>
+              </div>
+              <div id="error-overlay" class="overlay modal-overlay" hidden>
+                <h2>COMPUTE INTERRUPTED.</h2>
+                <p id="error-message"></p>
+                <button class="small-button" id="reload-button">RELOAD</button>
+              </div>
+            </div>
+            <div class="game-footer">
+              <span
+                ><i class="square-indicator"></i>
+                <span id="game-status">AWAITING FOUNDER</span></span
+              ><span id="game-engine">RUST / WASM / DETAILED PIXEL ART</span>
+            </div>
+          </section>
+
+          <div class="compact-feed">
+            <div class="compact-dispatch">
+              <span id="compact-decision">LIVE TIMELINE / STANDBY</span>
+              <strong id="compact-headline">Watching the next dispatch.</strong>
+              <p id="compact-effect">
+                News decisions and effects appear here automatically.
+              </p>
+            </div>
+            <button
+              id="briefing-toggle"
+              class="briefing-toggle"
+              aria-expanded="false"
+              aria-controls="world-briefing"
+            >
+              LIVE TIMELINE
+              <span id="briefing-pulse">NEWS / JEV / EFFECTS ↗</span>
+            </button>
+          </div>
+          <aside
+            id="world-briefing"
+            class="edition-panel"
+            aria-label="World briefing"
+          >
+            <div class="panel-top">
+              <span class="eyebrow">WORLD TIMELINE</span
+              ><span id="edition-kind" class="sample-tag">JEV / SHARED</span>
+              <button
+                id="briefing-close"
+                class="small-button"
+                aria-label="Close world briefing"
+              >
+                ×
+              </button>
+            </div>
+            <h2 id="edition-title">LIVE NEWS / AI MARKET</h2>
+            <div
+              class="briefing-tabs"
+              role="tablist"
+              aria-label="Briefing sections"
+            >
+              <button
+                id="tab-news"
+                role="tab"
+                aria-selected="true"
+                aria-controls="briefing-news"
+                data-briefing-tab="news"
+              >
+                LIVE TIMELINE
+              </button>
+              <button
+                id="tab-sources"
+                role="tab"
+                aria-selected="false"
+                aria-controls="briefing-sources"
+                data-briefing-tab="sources"
+                tabindex="-1"
+              >
+                SOURCES
+              </button>
+            </div>
+            <section
+              id="briefing-sources"
+              class="briefing-page"
+              role="tabpanel"
+              aria-labelledby="tab-sources"
+              hidden
+            >
+              <span class="eyebrow">EDITION PROVENANCE</span>
+              <p id="edition-provenance" class="data-disclosure"></p>
+              <span class="eyebrow">LIVE NEWS SOURCES</span>
+              <div class="source-list">
+                <a
+                  href="https://openai.com/news/rss.xml"
+                  target="_blank"
+                  rel="noreferrer"
+                  >OpenAI ↗</a
+                >
+                <a
+                  href="https://blogs.nvidia.com/feed/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >NVIDIA ↗</a
+                >
+                <a
+                  href="https://deepmind.google/blog/rss.xml"
+                  target="_blank"
+                  rel="noreferrer"
+                  >DeepMind ↗</a
+                >
+                <a
+                  href="https://huggingface.co/blog/feed.xml"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Hugging Face ↗</a
+                >
+                <a
+                  href="https://techcrunch.com/category/artificial-intelligence/feed/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >TechCrunch AI ↗</a
+                >
+                <a
+                  href="https://finance.yahoo.com/rss/headline?s=NVDA,AMD,MSFT,GOOG"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Yahoo Finance ↗</a
+                >
+              </div>
+              <p class="briefing-note">
+                The timeline shows live RSS excerpts and Jev decisions. Effects
+                use authored recipes. Shared decisions update this run. Yahoo
+                Finance supplies AI-sector market news.
+              </p>
+            </section>
+            <section
+              id="briefing-news"
+              class="briefing-page"
+              role="tabpanel"
+              aria-labelledby="tab-news"
+            >
+              <div class="timeline-market">
+                <span id="timeline-regime">NEUTRAL / WAITING</span>
+                <span id="timeline-modifiers">1.00× THREAT · 1.00× XP</span>
+              </div>
+              <p id="market-decision" class="market-decision">
+                Jev assesses market sentiment after you start.
+              </p>
+              <div class="news-toolbar">
+                <span id="news-status" role="status"
+                  >Live feed ready to connect.</span
+                ><button
+                  id="news-hold"
+                  aria-label="Pause automatic headlines"
+                  aria-pressed="false"
+                >
+                  Ⅱ
+                </button>
+                <button id="news-refresh" aria-label="Refresh news">↻</button>
+              </div>
+              <div class="run-timeline">
+                <div class="timeline-heading">
+                  <span>THIS RUN</span><span id="timeline-clock">00:00</span>
+                </div>
+                <ol id="news-timeline" aria-label="Run effect timeline"></ol>
+                <p id="timeline-now">Waiting for the opening bell.</p>
+              </div>
+              <article id="news-card" class="news-card" hidden>
+                <div class="news-card-heading">
+                  <span id="news-application"></span
+                  ><span id="news-signal"></span>
+                </div>
+                <span id="news-source"></span>
+                <h3>
+                  <a id="news-title" target="_blank" rel="noreferrer"></a>
+                </h3>
+                <div class="news-decision">
+                  <span id="news-category"></span>
+                  <div class="news-recipe-row">
+                    <img id="news-icon" alt="" hidden /><strong
+                      id="news-recipe"
+                    ></strong>
+                  </div>
+                  <span id="news-reason"></span>
+                </div>
+                <p id="news-effect"></p>
+                <div class="news-reading">
+                  <span id="news-page"></span
+                  ><span id="news-cadence">AUTO</span>
+                </div>
+                <div class="news-progress" aria-hidden="true">
+                  <i id="news-progress-fill"></i>
+                </div>
+              </article>
+              <div class="timeline-footer">
+                <div class="news-following">
+                  <span>NEXT HEADLINE</span>
+                  <p id="news-following">Waiting for publisher feeds…</p>
+                </div>
+                <div class="boss-dispatch">
+                  <img
+                    src="/assets/bubble.png"
+                    alt="The AI Bubble final boss"
+                  />
+                  <div>
+                    <span id="boss-time">AI BUBBLE / 03:00</span
+                    ><b id="news-mode">Live news loads automatically.</b>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </aside>
+        </div>
+
+        <div class="below-game">
+          <div class="controls">
+            <span><kbd>W A S D</kbd> MOVE</span
+            ><span><kbd>SPACE</kbd> DASH</span><span><kbd>E</kbd> SPECIAL</span
+            ><span><kbd>ESC</kbd> PAUSE</span>
+          </div>
+          <p>
+            Collect <span class="gpu-pip"></span> GPUs to level up. Cash
+            restores runway.<br /><strong
+              >Minibosses after 00:40. Burst the AI Bubble at 03:00.</strong
+            >
+          </p>
+        </div>
+      </main>
+      <footer class="site-footer">
+        <span>BUILT ON COMPUTE. RUNNING ON HYPE.</span
+        ><span
+          >GPU SURVIVOR <b>v0.1</b> <span class="footer-separator">/</span> A
+          SATIRICAL SURVIVAL GAME</span
+        >
+      </footer>
+    </div>
+    <script src="/vendor/miniquad.js"></script>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

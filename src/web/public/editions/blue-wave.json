@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "blue-wave-preview-v1",
+  "title": "BLUE WAVE",
+  "seed": 20261113,
+  "duration_seconds": 180,
+  "boss_at_seconds": 180,
+  "regime": "neutral",
+  "threat_multiplier": 1.0,
+  "xp_multiplier": 1.0,
+  "provenance": "Fictional modular-pack preview inspired by an election-wave idea. This is not a verified report of election results. No live news or prices.",
+  "events": [
+    {
+      "at_seconds": 12,
+      "kind": "blue_wave",
+      "title": "BLUE WAVE: THE INSPECTORS HAVE ARRIVED"
+    },
+    {
+      "at_seconds": 65,
+      "kind": "funding",
+      "title": "A NEW ROUND OF PUBLIC FUNDING"
+    },
+    {
+      "at_seconds": 115,
+      "kind": "liquidation",
+      "title": "GPU LIQUIDATION SALE"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+[target.wasm32-unknown-unknown]
+# Miniquad's JavaScript loader supplies the browser imports.
+rustflags = ["-C", "link-arg=--allow-undefined"]

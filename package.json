@@ -1,0 +1,30 @@
+{
+  "name": "gpu-survivor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@11.22.0",
+  "scripts": {
+    "assets": "python3 scripts/pixel-art.py && uv run scripts/import-actors.py && uv run scripts/environment-art.py",
+    "assets:check": "uv run scripts/import-actors.py --check && uv run scripts/environment-art.py --check",
+    "build:game": "node scripts/build-game.mjs",
+    "build": "pnpm build:game && vite build",
+    "dev": "vite --host 127.0.0.1",
+    "preview": "vite preview --host 127.0.0.1",
+    "format": "cargo fmt && prettier --write src/web src/director scripts/*.mjs docs README.md package.json vite.config.js tests",
+    "check": "cargo fmt --check && cargo clippy --all-targets -- -D warnings && cargo test && pnpm test:news && prettier --check src/web src/director scripts/*.mjs docs README.md package.json vite.config.js tests",
+    "test:news": "node --test src/director/*.test.mjs",
+    "test:browser": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.0",
+    "prettier": "^3.8.0",
+    "vite": "^7.3.0"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.12.0"
+  }
+}

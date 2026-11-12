@@ -1,0 +1,38 @@
+GPU Survivor — character artwork and photo references
+
+Data-center equipment was generated with OpenAI GPT Image 2 and processed by
+scripts/environment-art.py. Floor panels and enemy projectiles are procedural
+pixel artwork authored for this project.
+
+Character sheets were generated with OpenAI GPT Image 2 and processed into
+palette-limited pixel art. Changes include full-body costume and pose synthesis,
+eight directions, animation, background removal, resizing, and portrait cropping.
+Jensen and the fictional rivals were generated from descriptions. The remaining
+real-person sheets used these photographic likeness references:
+
+Sam Altman
+Photo: TechCrunch; Wikimedia Commons crop by James Tamim.
+https://commons.wikimedia.org/wiki/File:Sam_Altman_CropEdit_James_Tamim.jpg
+Creative Commons Attribution 2.0:
+https://creativecommons.org/licenses/by/2.0/
+
+Dario Amodei
+Photo: Simon Walker / No 10 Downing Street, published by UK Prime Minister.
+https://commons.wikimedia.org/wiki/File:Dario_Amodei_in_2023_(cropped).jpg
+Creative Commons Attribution 2.0:
+https://creativecommons.org/licenses/by/2.0/
+
+Elon Musk
+Photo: Debbie Rowe. Attribution: The Royal Society.
+https://commons.wikimedia.org/wiki/File:Elon_Musk_Royal_Society_crop.jpg
+Creative Commons Attribution-ShareAlike 3.0:
+https://creativecommons.org/licenses/by-sa/3.0/
+The adapted Elon artwork, including art/source/elon.png, assets/elon.png,
+and Elon's cells in assets/actors-2.png (rows 2 and 3, zero-based), is
+distributed under CC BY-SA 3.0.
+
+Bernie Sanders
+Official United States Congress portrait; public domain.
+https://commons.wikimedia.org/wiki/File:Bernie_Sanders.jpg
+
+These references do not imply endorsement by the people or photographers.

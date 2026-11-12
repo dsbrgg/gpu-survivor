@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "opening-bell-v1",
+  "title": "THE COMPUTE GOLD RUSH",
+  "seed": 20261112,
+  "duration_seconds": 180,
+  "boss_at_seconds": 180,
+  "regime": "neutral",
+  "threat_multiplier": 1.0,
+  "xp_multiplier": 1.0,
+  "provenance": "Hand-authored fictional demo. No live news or stock prices.",
+  "events": [
+    {
+      "at_seconds": 35,
+      "kind": "funding",
+      "title": "SERIES B: FREE MONEY IS BACK"
+    },
+    {
+      "at_seconds": 75,
+      "kind": "blackout",
+      "title": "THE GRID WOULD LIKE A WORD"
+    },
+    {
+      "at_seconds": 115,
+      "kind": "liquidation",
+      "title": "GPU LIQUIDATION SALE"
+    }
+  ]
+}
