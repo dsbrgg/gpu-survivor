@@ -2,7 +2,7 @@
 
 **Scale fast. Stay alive.** A satirical pixel-art survival game about the AI race. Play as Jensen, Sam, Dario, or Elon. Collect GPUs, stack upgrades, and defeat the AI Bubble when it arrives at three minutes.
 
-https://github.com/user-attachments/assets/efcbf7b9-29e5-43f8-8b3b-db4e2f1eac48
+https://github.com/user-attachments/assets/90bbaa28-f283-45da-ab16-457718631602
 
 ## Run locally
 
